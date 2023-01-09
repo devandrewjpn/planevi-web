@@ -91,8 +91,8 @@
                                     style="background-image: url(https://pbs.twimg.com/media/EQdBN8sWAAAZ4eu.jpg);">
                                 </div>
                                 <div class="d-flex flex-column">
-                                    <h6 class="simp-title">Capitão Astaton</h6>
-                                    <label class="simp-subtitle">yuutoandrew.jpn@gmail.com</label>
+                                    <h6 id="nameProfile" class="simp-title">Capitão Astaton</h6>
+                                    <label id="emailProfile" class="simp-subtitle">yuutoandrew.jpn@gmail.com</label>
                                 </div>
                             </div>
                             <button class="butt-secondary py-3">Meu Perfil</button>
@@ -139,7 +139,7 @@
                                 <div class="d-flex">
                                     <div class="box-w-icon me-3"><img src="img/user-grey.svg" alt=""></div>
                                     <div class="d-flex flex-column">
-                                        <span class="simp-title">Capião Astaton O'Conner</span>
+                                        <span id="name" class="simp-title">Capião Astaton O'Conner</span>
                                         <label class="simp-subtitle">Nome Completo</label>
                                     </div>
                                 </div>
@@ -148,7 +148,7 @@
                                 <div class="d-flex">
                                     <div class="box-w-icon me-3"><img src="img/user-grey.svg" alt=""></div>
                                     <div class="d-flex flex-column">
-                                        <span class="simp-title">yuutoandrew.jpn@gmail.com</span>
+                                        <span id="email" class="simp-title">yuutoandrew.jpn@gmail.com</span>
                                         <label class="simp-subtitle">Endereço de e-mail</label>
                                     </div>
                                 </div>
@@ -157,7 +157,7 @@
                                 <div class="d-flex">
                                     <div class="box-w-icon me-3"><img src="img/user-grey.svg" alt=""></div>
                                     <div class="d-flex flex-column">
-                                        <span class="simp-title">092.614.056-65</span>
+                                        <span id="cpf" class="simp-title">092.614.056-65</span>
                                         <label class="simp-subtitle">CPF</label>
                                     </div>
                                 </div>
@@ -166,7 +166,7 @@
                                 <div class="d-flex">
                                     <div class="box-w-icon me-3"><img src="img/user-grey.svg" alt=""></div>
                                     <div class="d-flex flex-column">
-                                        <span class="simp-title">( 31 ) 9 9978-8768</span>
+                                        <span id="phone" class="simp-title">( 31 ) 9 9978-8768</span>
                                         <label class="simp-subtitle">Telefone celular</label>
                                     </div>
                                 </div>
@@ -186,7 +186,7 @@
                                 <div class="d-flex">
                                     <div class="box-w-icon me-3"><img src="img/user-grey.svg" alt=""></div>
                                     <div class="d-flex flex-column">
-                                        <span class="simp-title">Rua Sebastiao de Brito, 81</span>
+                                        <span id="address" class="simp-title">Rua Sebastiao de Brito, 81</span>
                                         <label class="simp-subtitle">Endereço</label>
                                     </div>
                                 </div>
@@ -195,7 +195,7 @@
                                 <div class="d-flex">
                                     <div class="box-w-icon me-3"><img src="img/user-grey.svg" alt=""></div>
                                     <div class="d-flex flex-column">
-                                        <span class="simp-title">Liberdade</span>
+                                        <span id="district" class="simp-title">Liberdade</span>
                                         <label class="simp-subtitle">Bairro</label>
                                     </div>
                                 </div>
@@ -204,7 +204,7 @@
                                 <div class="d-flex">
                                     <div class="box-w-icon me-3"><img src="img/user-grey.svg" alt=""></div>
                                     <div class="d-flex flex-column">
-                                        <span class="simp-title">00000-000</span>
+                                        <span id="cep" class="simp-title">00000-000</span>
                                         <label class="simp-subtitle">CEP</label>
                                     </div>
                                 </div>
@@ -213,7 +213,7 @@
                                 <div class="d-flex">
                                     <div class="box-w-icon me-3"><img src="img/user-grey.svg" alt=""></div>
                                     <div class="d-flex flex-column">
-                                        <span class="simp-title">Belo Horizonte - MG</span>
+                                        <span class="simp-title"> <span id="city">Belo Horizonte </span> - <span id="state">MG</span></span>
                                         <label class="simp-subtitle">Cidade / Estado</label>
                                     </div>
                                 </div>
@@ -262,6 +262,11 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
         crossorigin="anonymous"></script>
+    
+    <script src="./js/requisicoes.js"></script>
+    <script src="./js/render.js"></script>
+
+
 </body>
 
 </html>
