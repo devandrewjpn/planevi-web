@@ -1,20 +1,20 @@
 function collapse() {
-    const collapseButton = document.querySelector('[data-astaton="collapse"]');
-    const collapseContent = document.querySelector('[data-astaton="collapse-content"]');
-    const collapseArrow = document.querySelector('[data-astaton="arrow"]');
+    const collapseButton = document.querySelectorAll('[data-astaton="collapse"]');
+    const collapseContent = document.querySelectorAll('[data-astaton="collapse-content"]');
+    const collapseArrow = document.querySelectorAll('[data-astaton="arrow"]');
 
 
-    if (document.body.contains(collapseButton)) {
-        collapseButton.addEventListener('click', () => {
-            collapseContent.classList.toggle('show-content');
-            if (collapseContent.classList.contains('show-content')) {
-                collapseArrow.style.transform = "rotate(180deg)";
-            } else {
-                collapseArrow.style.transform = "rotate(0deg)";
-            }
+    if (collapseButton.length > 0) {
+        collapseButton.forEach((e, i) => {
+            e.addEventListener('click', (event) => {
+                collapseContent[i].classList.toggle('show-content');
+                if (collapseContent[i].classList.contains('show-content')) {
+                    collapseArrow[i].style.transform = "rotate(180deg)";
+                } else {
+                    collapseArrow[i].style.transform = "rotate(0deg)";
+                }
+            })
         })
     }
 
 }
-
-collapse()

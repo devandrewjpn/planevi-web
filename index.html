@@ -114,7 +114,7 @@
                     <div class="welc bg-white boxshad rounded p-4">
                         <div class="d-flex mb-5 justify-content-between align-items-center">
                             <div class="d-flex flex-column">
-                                <h6 class="simp-title">Bem vindo, Capitão!</h6>
+                                <h6 class="simp-title">Bem vindo(a), <span id="welcome-name">Capitão!</span></h6>
                                 <label class="simp-subtitle">Desenvolvedor</label>
                             </div>
                             <button class="butt-primary" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight"
@@ -230,26 +230,7 @@
                             </div>
                         </div>
                         <div class="planos">
-                            <div class="plano-box">
-                                <div class="d-flex align-items-center">
-                                    <div class="planoimage bg-pink me-3"><img src="img/pet.svg" alt=""></div>
-                                    <div class="d-flex flex-column">
-                                        <span class="simp-title">Plano PET</span>
-                                        <label class="simp-subtitle">Premium</label>
-                                    </div>
-                                </div>
-                                <button class="status-button bg-success">ativo</button>
-                            </div>
-                            <div class="plano-box">
-                                <div class="d-flex align-items-center">
-                                    <div class="planoimage bg-ocean-blue me-3"><img src="img/odonto.svg" alt=""></div>
-                                    <div class="d-flex flex-column">
-                                        <span class="simp-title">Plano PET</span>
-                                        <label class="simp-subtitle">Premium</label>
-                                    </div>
-                                </div>
-                                <button class="status-button bg-danger">inativo</button>
-                            </div>
+
                         </div>
                         <div class="d-flex justify-content-end mt-5"><button class="butt-primary">Contratar novo
                                 plano</button></div>
@@ -264,7 +245,8 @@
         crossorigin="anonymous"></script>
     
     <script src="./js/requisicoes.js"></script>
-    <script src="./js/render.js"></script>
+    <script src="./js/generalRender.js"></script>
+    <script src="./js/renderProfile.js"></script>
 
 
 </body>
