@@ -1,16 +1,17 @@
+var meses = new Array("Janeiro", "Fevereiro", "Marco", "Abril", "Maio", "Junho", "Julho", "Agosto", "Septembro", "Outubro", "Novembro", "Dezembro");
+
 (async () => {
     const token = sessionStorage.getItem('token')
-    const userData = await getUser(token)
-    const userPlans = await getUserPlans(userData.id)
     const userSales = await getUserSales(token)
     const userInvoices = await getInvoices(token)
-    console.log(userInvoices);
     console.log(userSales);
 
     const planos = document.querySelector('.planos')
-
-    userSales.forEach((e, i) => {
-
+    
+    userSales.forEach(async (e, i) => {
+        
+        const category = await getCategoryById(e.plan.id_category)
+        const status = await getStatusById(e.plan.id_status)
 
         planos.innerHTML += `
         <div class="plano info bg-white boxshad rounded p-4 mt-4">
@@ -18,13 +19,13 @@
             <div class="d-flex align-items-center w-100">
                 <div class="plan-icon bg-ocean-blue"><i class='bx bx-plus-medical'></i></div>
                 <div class="ms-3 d-flex flex-column">
-                    <h6 class="simp-title">Plano Odontológico</h6>
+                    <h6 class="simp-title">Plano ${category.name}</h6>
                     <label class="simp-subtitle">Básico</label>
                 </div>
             </div>
             <div class="d-flex w-100 align-items-end flex-column">
                 <div class="d-flex mb-3">
-                    <button class="butt-outline-success me-3">Ativo</button>
+                    <button class="butt-outline-success me-3">${status.value}</button>
                     <button class="butt-primary">Acionar</button>
                 </div>
                 <buttton class="text-link" type="button" data-astaton="collapse">Mais detalhes <img
@@ -54,9 +55,9 @@
                 </div>
                 <div class="col-md-9">
                     <div class="tab-content w-100 px-3" id="v-pills-tabContent">
-                        <div class="tab-pane fade show active financeiro-${i}" id="v-pills-profile" role="tabpanel"
+                        <div class="tab-pane fade show active of-scroll financeiro-${i}" id="v-pills-profile" role="tabpanel"
                             aria-labelledby="v-pills-profile-tab" tabindex="0">
-                            
+
                         </div>
                         <div class="tab-pane fade" id="v-pills-home" role="tabpanel"
                             aria-labelledby="v-pills-home-tab" tabindex="0">
@@ -109,9 +110,13 @@
         </div>
     </div>
         `
+        
         const financeiro = document.querySelector(`.financeiro-${i}`)
-
+        
         e.invoices.forEach((element) => {
+
+            const paydate = new Date(element.due_date)
+            const duedate = new Date(element.payday_date)
 
             financeiro.innerHTML += `
             <div class="financeiro-card p-3 mb-3">
@@ -120,12 +125,12 @@
                 <img src="img/fatura-icon.png" alt="">
                 <div class="ms-3 d-flex flex-column">
                     <h6 class="simp-title">${element.description}</h6>
-                    <label class="simp-subtitle">PET Básico</label>
+                    <label class="simp-subtitle">${category.name} ${e.plan.name}</label>
                 </div>
             </div>
             <div class="d-flex flex-column">
-                <label>Vencimento: 9 Jan 2023</label>
-                <label>Paga: 6 Jan 2023</label>
+                <label>Vencimento: ${duedate.getDate()} ${meses[duedate.getMonth()]} ${duedate.getFullYear()}</label>
+                <label>Paga: ${!element.payday_date ? `-` : `${paydate.getDate()} ${meses[paydate.getMonth()]} ${paydate.getFullYear()}`}</label>
             </div>
             <div>
                 <span class="badge p-3 text-bg-success">PAGA</span>
@@ -137,7 +142,7 @@
         </div>
             `
         })
+        collapse()
     });
 
-    collapse()
 })()

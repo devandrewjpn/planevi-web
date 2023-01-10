@@ -1,4 +1,4 @@
-// sessionStorage.setItem('token', 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2NzMyOTQyMzgsIm5iZiI6MTY3MzI5NDIzOCwiZXhwIjoxNjc1OTcyNjM4LCJ1aWQiOiI3In0.iUJVT7mXTAtzR0E44me_xpW4VMwnGC7jpa5NOk5Rdzg')
+sessionStorage.setItem('token', 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2NzMzNTQ0MjAsIm5iZiI6MTY3MzM1NDQyMCwiZXhwIjoxNjc2MDMyODIwLCJ1aWQiOiIyIn0.zvizHLxsBBXhWERQchk_u0LmkhZIGSh1AGikXXct9GM')
 (async () => {
     const token = sessionStorage.getItem('token')
     const userData = await getUser(token)
