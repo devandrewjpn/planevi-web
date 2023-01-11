@@ -84,7 +84,27 @@ const getStatusById = async (idStatus) => {
 }
 
 const getUserSales = async (token) => {
-    const result = await fetch(`${base_url}/sale?limit=10`, req(`GET`, { Authorization: `Bearer ${token}` }))
+    const result = await fetch(`${base_url}/sale`, req(`GET`, { Authorization: `Bearer ${token}` }))
+        .then((res) => {
+            return res.json();
+        }).then((body) => {
+            return body.data;
+        })
+    return result
+}
+
+const getSaleById = async (idSale, token) => {
+    const result = await fetch(`${base_url}/sale/${idSale}`, req(`GET`, { Authorization: `Bearer ${token}` }))
+        .then((res) => {
+            return res.json();
+        }).then((body) => {
+            return body.data;
+        })
+    return result
+}
+
+const getPlanById = async (idPlan) => {
+    const result = await fetch(`${base_url}/plan/${idPlan}`, req(`GET`, {}))
         .then((res) => {
             return res.json();
         }).then((body) => {

@@ -1,5 +1,7 @@
-sessionStorage.setItem('token', 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2NzMzNTQ0MjAsIm5iZiI6MTY3MzM1NDQyMCwiZXhwIjoxNjc2MDMyODIwLCJ1aWQiOiIyIn0.zvizHLxsBBXhWERQchk_u0LmkhZIGSh1AGikXXct9GM')
+sessionStorage.setItem('token', 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2NzM0Mzk4OTUsIm5iZiI6MTY3MzQzOTg5NSwiZXhwIjoxNjc2MTE4Mjk1LCJ1aWQiOiI3In0.Na-58AUR8Ch1sMHY-bS7aksH0Y95-v3XUtk6YYfdCjg')
 (async () => {
+    setLoading()
+
     const token = sessionStorage.getItem('token')
     const userData = await getUser(token)
     const userPlans = await getUserPlans(userData.id)
@@ -47,4 +49,5 @@ sessionStorage.setItem('token', 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOj
         `
     });
 
+    removeLoading()
 })()
