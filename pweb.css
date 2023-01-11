@@ -14,6 +14,14 @@ body {
     --bold-text-color: #585858;
 }
 
+.plano-header {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    width: 100%;
+    height: 200px;
+}
+
 .of-scroll {
     height: 100%;
     overflow-y: scroll;
@@ -187,6 +195,26 @@ body {
 
 .boxshad {
     box-shadow: 0px 4px 15px rgba(125, 125, 125, 0.08);
+}
+
+.beneficios-box {
+    display: flex;
+    flex-direction: column;
+}
+
+.beneficios-box>span {
+    width: 100%;
+    padding: 8px;
+}
+
+.beneficios-box>span:nth-child(odd) {
+    background-color: #ebebeb;
+}
+
+.light-text {
+    font-size: 14px;
+    color: #ababab;
+    font-weight: 300;
 }
 
 .box-w-icon {
@@ -377,10 +405,16 @@ body {
 .btn-back {
     background-color: white;
     border: none;
-    color: black;
+    color: var(--primary-color);
     cursor: pointer;
-    border-radius: 20px;
-    padding: 5px 10px;
+    border-radius: 5px;
+    padding: 5px 20px;
+    transition: ease .5s;
+}
+
+.btn-back:hover {
+    background-color: var(--primary-color);
+    color: var(--terciary-color);
 }
 
 .btn-entrar {
