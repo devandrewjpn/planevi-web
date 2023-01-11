@@ -46,7 +46,8 @@
         `
     } else {
         loginContainer.innerHTML = `
-            
+            <button class="px-4 py-2 mx-2 btn-entrar">Entrar</button>
+            <button class="px-4 py-2 mx-2 btn-cadastro">Cadastrar</button>
         `
     }
 
