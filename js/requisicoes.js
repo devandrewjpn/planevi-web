@@ -112,3 +112,13 @@ const getPlanById = async (idPlan) => {
         })
     return result
 }
+
+const getBenefitByCategory = async (idCategory) => {
+    const result = await fetch(`${base_url}/benefit?category=${idCategory}`, req(`GET`, {}))
+        .then((res) => {
+            return res.json();
+        }).then((body) => {
+            return body.data;
+        })
+    return result
+}
