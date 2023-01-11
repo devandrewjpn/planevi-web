@@ -1,0 +1,50 @@
+:root {
+    --primary-color: #5200B6;
+    --terciary-color: #fff;
+    --success-color: #94e18d;
+    --danger-color: #EE6262;
+    --bold-text-color: #585858;
+}
+
+.content {
+    width: 100%;
+    max-width: 450px;
+    font-size: 18px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.content a {
+    text-decoration: none;
+    color: currentColor;
+}
+
+.content input {
+    width: 100%;
+    padding: 10px 15px;
+    font-size: 16px;
+    margin: 10px 0;
+    border: 1px solid var(--primary-color);
+    border-radius: 5px;
+    outline: none;
+}
+
+.content .login-toggle a {
+    border-bottom: 2px solid var(--primary-color);
+}
+
+.content input:focus {
+    outline: 2px solid var(--primary-color);
+}
+
+.content input[type='submit'] {
+    background-color: var(--primary-color);
+    cursor: pointer;
+    transition: all .3s ease;
+    color: white;
+}
+
+.content input[type='submit']:hover {
+    transform: scale(1.02);
+}

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+    <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="./pweb.css">
+    <link rel="stylesheet" href="./login.css">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <title>Planevi</title>
+</head>
+
+<body class="d-flex flex-column align-items-center justify-content-center" style="min-height: 100vh;">
+    <div class="logo-container">
+        <svg width="240" height="96" viewBox="0 0 240 96" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path
+                d="M45.314 33.1718C45.314 32.1427 45.2497 31.1136 45.1854 30.1489C43.2559 1.91395 1 3.71483 1 32.0141V77.4858C25.5046 77.4215 45.314 57.612 45.314 33.1718Z"
+                fill="#5200B6" />
+            <path opacity="0.81"
+                d="M63.4514 29.3129C63.4514 28.2838 63.3871 27.2547 63.3227 26.29C61.3932 -1.94494 19.1373 -0.14406 19.1373 28.1552V73.6269C43.5776 73.5626 63.4514 53.7531 63.4514 29.3129Z"
+                fill="url(#paint0_linear_724_1405)" />
+            <path
+                d="M104.292 43.4621C103.52 44.8771 102.363 45.9704 100.755 46.8709C99.1468 47.7713 97.0244 48.1572 94.4517 48.1572H88.8562V60.6989H83.7752V29.7627H94.4517C96.8315 29.7627 98.8253 30.1486 100.497 30.9847C102.17 31.8208 103.392 32.9142 104.164 34.3291C105 35.7441 105.386 37.2877 105.386 39.0243C105.386 40.6322 105 42.1114 104.292 43.4621ZM98.7609 42.7546C99.7257 41.8542 100.176 40.6322 100.176 39.0243C100.176 35.6155 98.2464 33.9433 94.4517 33.9433H88.8562V44.0409H94.4517C96.3812 44.0409 97.7962 43.655 98.7609 42.7546Z"
+                fill="#5200B6" />
+            <path d="M115.355 27.8335V60.7635H110.274V27.8335H115.355Z" fill="#5200B6" />
+            <path
+                d="M121.851 41.8543C122.88 39.9248 124.295 38.5099 126.031 37.4165C127.768 36.3874 129.761 35.8086 131.884 35.8086C133.813 35.8086 135.486 36.1945 136.965 36.9663C138.38 37.7381 139.538 38.6385 140.438 39.7962V36.2588H145.583V60.7634H140.438V57.0973C139.602 58.255 138.38 59.2198 136.901 59.9916C135.421 60.7634 133.749 61.1493 131.82 61.1493C129.697 61.1493 127.768 60.6347 126.031 59.5414C124.295 58.448 122.88 56.9687 121.851 54.9749C120.821 53.0454 120.307 50.8586 120.307 48.3503C120.307 45.9063 120.821 43.7195 121.851 41.8543ZM139.345 44.0411C138.637 42.8191 137.737 41.8543 136.579 41.2112C135.421 40.568 134.264 40.2464 132.913 40.2464C131.627 40.2464 130.405 40.568 129.247 41.2112C128.089 41.8543 127.189 42.7548 126.481 44.0411C125.774 45.2631 125.452 46.7424 125.452 48.4146C125.452 50.0869 125.774 51.5661 126.481 52.8525C127.189 54.1388 128.089 55.1035 129.247 55.7467C130.405 56.3899 131.627 56.7758 132.849 56.7758C134.135 56.7758 135.357 56.4542 136.515 55.811C137.672 55.1679 138.573 54.2031 139.28 52.9168C139.988 51.6304 140.309 50.1512 140.309 48.4789C140.374 46.8067 140.052 45.3274 139.345 44.0411Z"
+                fill="#5200B6" />
+            <path
+                d="M169.766 37.0308C171.31 37.8026 172.468 39.0246 173.368 40.5682C174.204 42.1118 174.655 44.0413 174.655 46.2924V60.7636H169.638V47.0642C169.638 44.8774 169.059 43.2052 167.966 41.9832C166.872 40.8255 165.393 40.2466 163.463 40.2466C161.534 40.2466 160.055 40.8255 158.961 41.9832C157.868 43.1409 157.289 44.8131 157.289 47.0642V60.7636H152.208V36.259H157.289V39.0889C158.125 38.0599 159.154 37.2881 160.441 36.7092C161.727 36.1304 163.078 35.8731 164.557 35.8731C166.486 35.8088 168.223 36.1947 169.766 37.0308Z"
+                fill="#5200B6" />
+            <path
+                d="M203.404 50.4082H184.688C184.817 52.3377 185.589 53.9456 186.875 55.1033C188.161 56.261 189.769 56.9042 191.699 56.9042C194.4 56.9042 196.329 55.7465 197.487 53.4954H202.954C202.182 55.7465 200.896 57.6117 198.902 59.0266C196.973 60.4416 194.529 61.2134 191.699 61.2134C189.383 61.2134 187.261 60.6989 185.396 59.6055C183.53 58.5764 182.115 57.0971 181.022 55.1677C179.993 53.2382 179.414 51.0514 179.414 48.543C179.414 46.0347 179.929 43.7836 180.958 41.9185C181.987 39.989 183.402 38.5097 185.267 37.4806C187.132 36.4516 189.255 35.937 191.634 35.937C193.95 35.937 196.008 36.4516 197.809 37.4806C199.61 38.5097 201.025 39.9246 202.054 41.7255C203.083 43.5264 203.597 45.6488 203.597 48.0285C203.533 48.8003 203.533 49.6364 203.404 50.4082ZM198.259 46.292C198.259 44.4268 197.551 42.9475 196.265 41.7898C194.979 40.6321 193.371 40.1176 191.441 40.1176C189.705 40.1176 188.161 40.6964 186.939 41.7898C185.717 42.8832 184.945 44.4268 184.688 46.292H198.259Z"
+                fill="#5200B6" />
+            <path
+                d="M218.004 56.1967L224.95 36.1943H230.353L221.027 60.6989H214.981L205.655 36.1943H211.058L218.004 56.1967Z"
+                fill="#5200B6" />
+            <path
+                d="M234.469 32.014C233.826 31.3708 233.504 30.599 233.504 29.6986C233.504 28.7982 233.826 28.0264 234.469 27.3832C235.112 26.74 235.884 26.4185 236.784 26.4185C237.685 26.4185 238.456 26.74 239.035 27.3832C239.678 28.0264 240 28.7982 240 29.6986C240 30.599 239.678 31.3708 239.035 32.014C238.392 32.6572 237.685 32.9787 236.784 32.9787C235.819 32.9787 235.112 32.6572 234.469 32.014ZM239.292 36.1946V60.6991H234.211V36.1946H239.292Z"
+                fill="#5200B6" />
+            <defs>
+                <linearGradient id="paint0_linear_724_1405" x1="23.4964" y1="68.3565" x2="47.111" y2="18.6738"
+                    gradientUnits="userSpaceOnUse">
+                    <stop stop-color="#FDBF14" stop-opacity="0.9" />
+                    <stop offset="1" stop-color="#F44775" />
+                </linearGradient>
+            </defs>
+        </svg>
+    </div>
+    <form class="content" id="form">
+        <input type="text" placeholder="Nome:" id="name">
+        <input type="email" placeholder="Email:" id="email">
+        <input type="password" placeholder="Senha:" id="senha">
+        <input type="text" placeholder="CPF:" id="cpf">
+        <input type="text" placeholder="Telefone:" id="phone">
+        <input type="text" placeholder="CEP:" id="zip_code">
+        <input type="text" placeholder="Estado:" id="state">
+        <input type="text" placeholder="Cidade:" id="city">
+        <input type="text" placeholder="Bairro:" id="district">
+        <input type="text" placeholder="Endereço:" id="address">
+        <input type="text" placeholder="Número:" id="number">
+        <input type="submit" value="Cadastrar">
+        <div class="login-toggle">Já possui uma conta? <a href="./login.html">Entrar</a></div>
+    </form>
+    <nav>
+        <a href="./login.html" class="btn-back">
+            <img src="./img/Union.svg" alt="">
+        </a>
+        <div href="" class="btn-next none">
+            AVANÇAR
+        </div>
+    </nav>
+
+    <script src="./js/funcoes.js"></script>
+    <script>
+
+        if (sessionStorage.getItem(`token`)) {
+            window.location.href = `./perguntas.html`
+        }
+
+        document.querySelector('#form').addEventListener('submit', async (e) => {
+            e.preventDefault()
+
+            const name = document.querySelector('#name').value
+            const email = document.querySelector('#email').value
+            const senha = document.querySelector('#senha').value
+            const cpf = document.querySelector('#cpf').value
+            const phone = document.querySelector('#phone').value
+            const zip_code = document.querySelector('#zip_code').value
+            const state = document.querySelector('#state').value
+            const city = document.querySelector('#city').value
+            const district = document.querySelector('#district').value
+            const address = document.querySelector('#address').value
+            const number = document.querySelector('#number').value
+
+            if ([name, email, senha, cpf, phone, zip_code, state, city, district, address, number].some((currentValue, i, arr) => { return currentValue == '' })) {
+                return setToast('Preencha todos os campos!', 'error')
+            }
+
+            const response = await register(name, email, senha, cpf, phone, zip_code, state, city, district, address, number)
+
+            console.log(response);
+
+            if (!response.access_token) {
+                return setToast('Ocorreu algum erro. Tente novamente mais tarde!', 'error')
+            }
+
+            sessionStorage.setItem('token', response.access_token)
+
+            setToast('Cadastrado com sucesso!', 'success')
+
+            setTimeout(() => {
+                window.location.href = `./login.html`
+            }, 1500)
+
+        })
+    </script>
+</body>
+
+</html>
