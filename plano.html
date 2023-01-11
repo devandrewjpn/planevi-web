@@ -78,13 +78,48 @@
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-12">
-                                <div class="bg-white px-4 py-4 rounded">
-                                    <div class="mb-4 simp-title">Faturas</div>
-                                    <div id="faturas">
+                            <div class="col-12 px-3">
+                                <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+                                    <li class="nav-item" role="presentation">
+                                        <button class="nav-link active" id="pills-home-tab" data-bs-toggle="pill"
+                                            data-bs-target="#pills-home" type="button" role="tab"
+                                            aria-controls="pills-home" aria-selected="true">Faturas</button>
+                                    </li>
+                                    <li class="nav-item" role="presentation">
+                                        <button class="nav-link" id="pills-profile-tab" data-bs-toggle="pill"
+                                            data-bs-target="#pills-profile" type="button" role="tab"
+                                            aria-controls="pills-profile" aria-selected="false">Atendimento</button>
+                                    </li>
+                                </ul>
+                                <div class="tab-content" id="pills-tabContent">
+                                    <div class="tab-pane fade show active" id="pills-home" role="tabpanel"
+                                        aria-labelledby="pills-home-tab" tabindex="0">
+                                        <div class="px-4 py-2">
+                                            <div id="faturas">
 
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="tab-pane fade" id="pills-profile" role="tabpanel"
+                                        aria-labelledby="pills-profile-tab" tabindex="0">
+                                        <div class="px-4 py-2">
+                                            <div id="atendimentos">
+                                                <div class="bg-light p-3">
+                                                    <div>
+                                                        <div class="d-flex w-100 justify-content-between">
+                                                            <b>Titulo atendimento 11/01/2023 - 15:34</b>
+                                                            <span class="badge text-bg-success">Concluído</span>
+                                                        </div>
+                                                        <p class="m-0">Descrição pagamento Lorem ipsum dolor sit amet
+                                                            consectetur,
+                                                            adipisicing</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
+
                             </div>
                         </div>
                     </div>
