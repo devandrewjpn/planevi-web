@@ -47,12 +47,12 @@
 
         faturas.innerHTML += `
         <div class="row my-3 px-3">
-            <div class="col-2 p-0 m-0 d-flex justify-content-center align-items-center"><img src="./img/fatura-icon.png" alt=""></div>
+            <div class="col-1 p-0 m-0 d-flex align-items-center"><img src="./img/fatura-icon.png" alt=""></div>
             <div class="col-6">
                 <div class="text-truncate p-0 m-0 fs-6 simp-title">${e.description}</div>
                 <div class="text-truncate p-0 m-0 simp-subtitle btn-boleto" data-boletoURL="${e.iugu_link}">Ver fatura / 2ª via</div>
             </div>
-            <div class="col-4 d-flex align-items-center justify-content-center">
+            <div class="col-5 d-flex align-items-center justify-content-end">
                 <button class="butt-outline-${buttonType}">${status.value}</button>
             </div>
         </div>
@@ -78,11 +78,15 @@
     })
 
     const beneficios = document.querySelector(`.beneficios`)
-    benefits.forEach((e) => {
-        beneficios.innerHTML += `
-            <li>${e.name}</li>
-        `
-    })
+
+    if (beneficios) {
+        benefits.forEach((e) => {
+            beneficios.innerHTML += `
+            <span>${e.name}</span>
+            `
+        })
+
+    }
 
     removeLoading()
 
