@@ -56,3 +56,7 @@ var meses = new Array("Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho"
         
         removeLoading()
     })()
+
+    document.querySelector('.btn-perfil').addEventListener('click', (e) => {
+        redirect('index.html')
+    })

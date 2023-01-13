@@ -1,5 +1,6 @@
 
 const base_url = `https://sirius.bplink.com.br/public/api`
+const site_url = 'http://127.0.0.1:5500/'
 
 const req = (method = `GET`, headers = {}, body = undefined) => {
     return {
@@ -10,7 +11,7 @@ const req = (method = `GET`, headers = {}, body = undefined) => {
             'Content-Type': 'application/json',
             ...headers
         },
-        body: body
+        body: JSON.stringify(body)
     }
 }
 
@@ -147,4 +148,18 @@ const getBenefitByCategory = async (idCategory) => {
             return body.data;
         })
     return result
+}
+
+const getAttendanceById = async (token, idPlan) => {
+    const result = await fetch(`${base_url}/attendance?plan=${idPlan}`, req(`GET`, { Authorization: `Bearer ${token}` }))
+        .then((res) => {
+            return res.json();
+        }).then((body) => {
+            return body.data;
+        })
+    return result
+}
+
+const redirect = (url) => {
+    window.location.href = site_url + url
 }

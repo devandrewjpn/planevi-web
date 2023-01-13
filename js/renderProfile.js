@@ -1,4 +1,3 @@
-sessionStorage.setItem('token', 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2NzM0Mzk4OTUsIm5iZiI6MTY3MzQzOTg5NSwiZXhwIjoxNjc2MTE4Mjk1LCJ1aWQiOiI3In0.Na-58AUR8Ch1sMHY-bS7aksH0Y95-v3XUtk6YYfdCjg')
 (async () => {
     setLoading()
 
@@ -9,8 +8,6 @@ sessionStorage.setItem('token', 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOj
     console.log(userData);
     console.log(userPlans);
 
-    const name = document.querySelector('#name')
-    const email = document.querySelector('#email')
     const cpf = document.querySelector('#cpf')
     const phone = document.querySelector('#phone')
     const address = document.querySelector('#address')
@@ -19,8 +16,6 @@ sessionStorage.setItem('token', 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOj
     const city = document.querySelector('#city')
     const state = document.querySelector('#state')
 
-    name.textContent = userData.name
-    email.textContent = userData.email
     cpf.textContent = userData.cpf
     phone.textContent = userData.phone
     address.textContent = userData.address.address
@@ -51,3 +46,7 @@ sessionStorage.setItem('token', 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOj
 
     removeLoading()
 })()
+
+document.querySelector('.btn-planos').addEventListener('click', (e) => {
+    redirect('planos.html')
+})

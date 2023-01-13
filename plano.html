@@ -18,7 +18,7 @@
     <title>Document</title>
 </head>
 
-<body style="min-height: 101vh;">
+<body style="min-height: 101vh; overflow-x: hidden;">
 
     <div class="offCanvasP">
     </div>
@@ -56,25 +56,27 @@
                             <div class="d-flex align-items-center">
                                 <div class="plan-icon bg-ocean-blue"><i class='bx bx-plus-medical'></i></div>
                                 <div class="ms-3 d-flex flex-column">
-                                    <h6 class="simp-title">Plano Hello Kitty</h6>
-                                    <label class="simp-subtitle">Básico</label>
+                                    <h6 class="simp-title category-name-render"></h6>
+                                    <label class="simp-subtitle plan-name-render"></label>
                                 </div>
                             </div>
                             <div class="d-flex mb-3">
-                                <button class="butt-outline-success me-2">Ativado</button>
-                                <button class="butt-primary">Acionar</button>
+                                <button class="statusPlanValue me-2"></button>
                             </div>
                         </div>
                         <div class="row mt-4 p-3 justify-content-between">
-                            <div class="col-md-4 light-text">
-                                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Neque cum repellendus
-                                reiciendis iusto earum animi nihil magnam facere? Quo.
-                                <ul class="list-unstyled mt-5">
-                                    <li><b>Pergunta</b> Resposta</li>
-                                </ul>
+                            <div class="col-md-4 light-text answers-container">
+                                <div class="category-description"></div>
+                                <div class="mt-5">
+                                    <div class="simp-title">Dados da contratação:</div>
+                                    <ul class="list-unstyled answers-render">
+                                        
+                                    </ul>
+                                </div>
                             </div>
                             <div class="col-md-4">
-                                <div class="beneficios beneficios-box"></div>
+                                <div class="simp-title">Benefícios: </div>
+                                <div class="beneficios beneficios-box mt-3"></div>
                             </div>
                         </div>
                         <div class="row">
@@ -103,18 +105,9 @@
                                     <div class="tab-pane fade" id="pills-profile" role="tabpanel"
                                         aria-labelledby="pills-profile-tab" tabindex="0">
                                         <div class="px-4 py-2">
-                                            <div id="atendimentos">
-                                                <div class="bg-light p-3">
-                                                    <div>
-                                                        <div class="d-flex w-100 justify-content-between">
-                                                            <b>Titulo atendimento 11/01/2023 - 15:34</b>
-                                                            <span class="badge text-bg-success">Concluído</span>
-                                                        </div>
-                                                        <p class="m-0">Descrição pagamento Lorem ipsum dolor sit amet
-                                                            consectetur,
-                                                            adipisicing</p>
-                                                    </div>
-                                                </div>
+                                            <div class="w-100 d-flex justify-content-between simp-title"><div>Assistência: 0800 2187281</div> <div class="butt-outline-danger">Cancelar assinatura</div></div>
+                                            <div class="mt-3" id="atendimentos">
+                                                
                                             </div>
                                         </div>
                                     </div>
