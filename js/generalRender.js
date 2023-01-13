@@ -1,6 +1,6 @@
 (async () => {
     const token = sessionStorage.getItem('token')
-    const userData = await getUser(token)
+    const userData = token ? await getUser(token) : undefined
 
     const nameWelcome = document.querySelector('#welcome-name')
     const nameRender = document.querySelectorAll('.name-render')
@@ -19,7 +19,7 @@
     })
 
     const loginContainer = document.querySelector(`.login-container`)
-    if (token) {
+    if (token && loginContainer) {
         loginContainer.innerHTML = `
             <div class="profile-img me-3"
                 style="background-image: url(https://pbs.twimg.com/media/EQdBN8sWAAAZ4eu.jpg);">
@@ -45,10 +45,20 @@
             </div>
         `
     } else {
-        loginContainer.innerHTML = `
+        if (loginContainer) {
+            loginContainer.innerHTML = `
             <button class="px-4 py-2 mx-2 btn-entrar">Entrar</button>
             <button class="px-4 py-2 mx-2 btn-cadastro">Cadastrar</button>
         `
+
+            document.querySelector(`.btn-entrar`).addEventListener(`click`, (event) => {
+                window.location.href = `./login.html`
+            })
+
+            document.querySelector(`.btn-cadastro`).addEventListener(`click`, (event) => {
+                window.location.href = `./register.html`
+            })
+        }
     }
 
 })()
@@ -58,6 +68,7 @@ const setToast = (text, tipo = 'error') => {
     const toast = document.createElement('div')
     toast.setAttribute('class', 'toast')
     toast.classList.add(tipo)
+    toast.classList.add(`show`)
     toast.textContent = text
     document.querySelector('body').appendChild(toast)
 
@@ -101,4 +112,3 @@ const setOffCanvas = (content) => {
     offCanvas.appendChild(closeBtn)
     closeBtn.addEventListener(`click`, (e) => removeOffCanvas())
 }
-

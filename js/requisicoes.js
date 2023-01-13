@@ -29,6 +29,32 @@ const login = async (email, password) => {
     return result
 }
 
+const register = async (name, email, password, cpf, phone, zip_code, state, city, district, address, number) => {
+    const cadastro = await fetch(`${base_url}/user`, initPost({
+        name: name,
+        email: email,
+        password: password,
+        cpf: cpf,
+        phone: phone,
+        address: {
+            zip_code: zip_code,
+            state: state,
+            city: city,
+            district: district,
+            street: address,
+            number: number
+        }
+    }), { 'Content-Type': 'application/json' })
+        .then((res) => {
+            return res.json();
+        }).then((body) => {
+            return body.data;
+        })
+
+    const result = await login(email, password)
+    return result
+}
+
 const getUser = async (token) => {
 
     const result = await fetch(`${base_url}/user`, req(`GET`, { Authorization: `Bearer ${token}` }))

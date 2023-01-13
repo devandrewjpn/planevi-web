@@ -63,7 +63,8 @@
         <div class="login-toggle">Não possui conta? <a href="./register.html">Cadastre-se</a></div>
     </form>
 
-    <script src="./js/funcoes.js"></script>
+    <script src="./js/requisicoes.js"></script>
+    <script src="./js/generalRender.js"></script>
     <script>
 
         if (sessionStorage.getItem(`token`)) {
@@ -97,7 +98,7 @@
             setToast('Logado com sucesso!', 'success')
 
             setTimeout(() => {
-                window.location.href = `./perguntas.html`
+                window.location.href = `./index.html`
             }, 1500)
 
         })

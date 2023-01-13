@@ -15,8 +15,7 @@
     <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="./pweb.css">
-    <link rel="stylesheet" href="./login.css">
-    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <link rel="stylesheet" href="./css/login.css">
     <title>Planevi</title>
 </head>
 
@@ -58,34 +57,51 @@
         </svg>
     </div>
     <form class="content" id="form">
-        <input type="text" placeholder="Nome:" id="name">
-        <input type="email" placeholder="Email:" id="email">
-        <input type="password" placeholder="Senha:" id="senha">
-        <input type="text" placeholder="CPF:" id="cpf">
-        <input type="text" placeholder="Telefone:" id="phone">
-        <input type="text" placeholder="CEP:" id="zip_code">
-        <input type="text" placeholder="Estado:" id="state">
-        <input type="text" placeholder="Cidade:" id="city">
-        <input type="text" placeholder="Bairro:" id="district">
-        <input type="text" placeholder="Endereço:" id="address">
-        <input type="text" placeholder="Número:" id="number">
-        <input type="submit" value="Cadastrar">
+        <div class="info-pessoais">
+            <input type="text" placeholder="Nome:" id="name">
+            <input type="email" placeholder="Email:" id="email">
+            <input type="password" placeholder="Senha:" id="senha">
+            <input type="text" placeholder="CPF:" id="cpf">
+            <input type="text" placeholder="Telefone:" id="phone">
+            <nav>
+                <div class="btn-next">Avançar</div>
+            </nav>
+        </div>
+        <div class="info-residenciais d-none">
+            <nav class="tela-2">
+                <div class="btn-back"><img src="./img/Union.svg" alt=""></div>
+            </nav>
+            <input type="text" placeholder="CEP:" id="zip_code">
+            <input type="text" placeholder="Estado:" id="state">
+            <input type="text" placeholder="Cidade:" id="city">
+            <input type="text" placeholder="Bairro:" id="district">
+            <input type="text" placeholder="Endereço:" id="address">
+            <input type="text" placeholder="Número:" id="number">
+            <input type="submit" value="Cadastrar">
+            
+        </div>
         <div class="login-toggle">Já possui uma conta? <a href="./login.html">Entrar</a></div>
     </form>
-    <nav>
-        <a href="./login.html" class="btn-back">
-            <img src="./img/Union.svg" alt="">
-        </a>
-        <div href="" class="btn-next none">
-            AVANÇAR
-        </div>
-    </nav>
 
-    <script src="./js/funcoes.js"></script>
+    <script src="./js/requisicoes.js"></script>
+    <script src="./js/generalRender.js"></script>
     <script>
-
         if (sessionStorage.getItem(`token`)) {
-            window.location.href = `./perguntas.html`
+
+        }
+
+        if(btnNext = document.querySelector(`.btn-next`)) {
+            btnNext.addEventListener(`click`, (e) => {
+                document.querySelector(`.info-pessoais`).classList.add(`d-none`)
+                document.querySelector(`.info-residenciais`).classList.remove(`d-none`)
+            })
+        }
+
+        if(btnNext = document.querySelector(`.btn-back`)) {
+            btnNext.addEventListener(`click`, (e) => {
+                document.querySelector(`.info-residenciais`).classList.add(`d-none`)
+                document.querySelector(`.info-pessoais`).classList.remove(`d-none`)
+            })
         }
 
         document.querySelector('#form').addEventListener('submit', async (e) => {
@@ -102,6 +118,8 @@
             const district = document.querySelector('#district').value
             const address = document.querySelector('#address').value
             const number = document.querySelector('#number').value
+
+            
 
             if ([name, email, senha, cpf, phone, zip_code, state, city, district, address, number].some((currentValue, i, arr) => { return currentValue == '' })) {
                 return setToast('Preencha todos os campos!', 'error')

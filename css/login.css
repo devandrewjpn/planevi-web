@@ -6,6 +6,10 @@
     --bold-text-color: #585858;
 }
 
+body {
+    background-color: #fff;
+}
+
 .content {
     width: 100%;
     max-width: 450px;
@@ -47,4 +51,95 @@
 
 .content input[type='submit']:hover {
     transform: scale(1.02);
+}
+
+nav {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    margin: 20px 0;
+}
+
+nav.tela-2 {
+    justify-content: start;
+}
+
+nav .btn-back {
+    background: var(--primary-color);
+    width: 17%;
+    padding: 15px 0;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all .3s ease;
+    color: white;
+    cursor: pointer;
+}
+
+nav .btn-next {
+    color: var(--primary-color);
+    font-weight: 700;
+    text-align: end;
+    border: none;
+    border-bottom: solid transparent;
+    transition: all .2s ease;
+    cursor: pointer;
+    background-color: transparent;
+}
+
+nav .btn-back:hover {
+    transform: scale(1.05);
+}
+
+nav .btn-next:hover {
+    border-bottom: solid var(--primary-color);
+}
+
+.toast {
+    padding: 10px 15px;
+    position: fixed;
+    left: 2%;
+    top: 90%;
+    color: white;
+    animation: toast 4s ease;
+    z-index: 2000;
+}
+
+.toast.error {
+    background-color: lightcoral;
+}
+
+.toast.success {
+    background-color: lightgreen;
+}
+
+.toast.warning {
+    background-color: lightyellow;
+}
+
+@keyframes toast {
+    0% {
+        transform: translateY(100vh);
+        opacity: 0;
+    }
+
+    20% {
+        transform: translateY(-10px);
+    }
+
+    25%,
+    80% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+
+    85% {
+        transform: translateY(-10px);
+    }
+
+    100% {
+        transform: translateY(100vh);
+    }
 }
